@@ -1,4 +1,5 @@
 <?php
+// php -S 0.0.0.0:8000 (no terminal para inicar servidor)
 // Função para gerar cores dinâmicas (HSL)
 function gerarCoresDinamicas($quantidade) {
     $cores = [];
