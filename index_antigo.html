@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gráfico com Chart.js (chart.umd.js)</title>
+  </head>
+  <body>
+    <!-- Elemento canvas onde o gráfico será renderizado -->
+    <canvas id="meuGrafico" width="400" height="200"></canvas>
+
+    <!-- Inclui o chart.umd.js -->
+    <script src="js/chart.umd.js"></script>
+
+    <!-- Código para criar o gráfico -->
+    <script>
+      // Obtém o contexto do canvas
+      const ctx = document.getElementById("meuGrafico").getContext("2d");
+
+      // Cria o gráfico de barras
+      new Chart(ctx, {
+        type: "bar", // Tipo de gráfico: barras
+        data: {
+          labels: ["Janeiro", "Fevereiro", "Março"], // Rótulos do eixo X
+          datasets: [
+            {
+              label: "Lucro (R$)", // Nome da série de dados
+              data: [1200, 1900, 300], // Valores do eixo Y
+              backgroundColor: "rgba(54, 162, 235, 0.2)", // Cor de preenchimento
+              borderColor: "rgba(54, 162, 235, 1)", // Cor da borda
+              borderWidth: 1, // Espessura da borda
+            },
+            {
+              label: "Resultado (R$)", // Nome da série de dados
+              data: [2200, 3900, 4300], // Valores do eixo Y
+              backgroundColor: "rgba(0, 128, 0, 0.2)", // Cor de preenchimento
+              borderColor: "rgba(0, 128, 0, 1)", // Cor da borda
+              borderWidth: 1, // Espessura da borda
+            },
+          ],
+        },
+        options: {
+          responsive: true, // Gráfico se adapta ao tamanho do canvas
+          scales: {
+            y: {
+              beginAtZero: true, // Eixo Y começa do zero
+              title: {
+                display: true,
+                text: "Lucro (R$)",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Mês",
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+            },
+            title: {
+              display: true,
+              text: "Lucro Mensal de Investimentos",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
